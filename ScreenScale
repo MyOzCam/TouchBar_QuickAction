@@ -1,0 +1,22 @@
+-- touch bar quick action script --
+-- Change screen scale --
+-- Workable on macOS Catalina 10.15.3
+
+tell application "System Preferences"
+	reveal anchor "displaysDisplayTab" of pane "com.apple.preference.displays"
+end tell
+
+tell application "System Events" to tell process "System Preferences" to tell window "Built-in Retina Display"
+	click radio button "Display" of tab group 1
+	click radio button "Scaled" of radio group 1 of tab group 1
+	delay 0.25
+	if (get value of radio button 3 of radio group 1 of group 2 of tab group 1) is true then
+		click radio button 2 of radio group 1 of group 2 of tab group 1
+	else if (get value of radio button 2 of radio group 1 of group 2 of tab group 1) is true then
+		click radio button 4 of radio group 1 of group 2 of tab group 1
+	else if (get value of radio button 4 of radio group 1 of group 2 of tab group 1) is true then
+		click radio button 3 of radio group 1 of group 2 of tab group 1
+	end if
+end tell
+
+quit application "System Preferences"
