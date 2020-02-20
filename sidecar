@@ -1,0 +1,24 @@
+-- touch bar quick action script --
+-- Sidecar device connect/disconnect --
+-- Workable on macOS Catalina 10.15.3
+
+tell application "System Preferences"
+	reveal pane "com.apple.preference.sidecar"
+end tell
+
+tell application "System Events" to tell process "System Preferences" to tell window "Sidecar"
+	try
+		click button "Disconnect"
+	on error
+		try
+			tell menu button "Select Device"
+				click
+				pick menu item "<<Your iPad's name>>" of menu "Select Device"
+			end tell
+		on error
+			display notification "Sidecar: no device nearby" with title "⚠️ Alert!"sound name "frog"
+		end try
+	end try
+end tell
+
+quit application "System Preferences"
