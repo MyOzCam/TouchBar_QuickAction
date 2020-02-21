@@ -12,7 +12,7 @@ tell application "System Events" to tell process "System Preferences"
 		try
 			select (row 1 where value of text field 1 is "<<Your AirPods name>>")
 		on error
-			display notification "AirPods is not around." with title "⚠️ Alert " sound name "frog"
+			display notification "AirPods is not around." with title "⚠️ Sound Output " sound name "frog"
 		end try
 	end tell
 end tell
@@ -26,6 +26,8 @@ tell application "System Events" to tell process "System Preferences"
 	tell table 1 of scroll area 1 of tab group 1 of window 1
 		try
 			select (row 1 where value of text field 1 is "<<Your AirPods name>>")
+		on error
+			display notification "AirPods is not around." with title "⚠️ Sound Input " sound name "frog"
 		end try
 	end tell
 end tell
