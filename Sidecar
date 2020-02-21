@@ -16,7 +16,7 @@ tell application "System Events" to tell process "System Preferences" to tell wi
 				pick menu item "<<Your iPad's name>>" of menu "Select Device"
 			end tell
 		on error
-			display notification "Sidecar: no device nearby" with title "⚠️ Alert!"sound name "frog"
+			display notification "No device nearby" with title "⚠️ Sidecar"sound name "frog"
 		end try
 	end try
 end tell
