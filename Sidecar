@@ -8,9 +8,11 @@ end tell
 
 tell application "System Events" to tell process "System Preferences" to tell window "Sidecar"
 	try
+		delay 0.25
 		click button "Disconnect"
 	on error
 		try
+			delay 0.25
 			tell menu button "Select Device"
 				click
 				pick menu item "<<Your iPad's name>>" of menu "Select Device"
