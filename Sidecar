@@ -3,6 +3,7 @@
 -- Workable on macOS Catalina 10.15.3
 
 tell application "System Preferences"
+	activate
 	reveal pane "com.apple.preference.sidecar"
 end tell
 
